@@ -19,4 +19,12 @@ Kitten.find(function(err, kittens) {
 	if (err) return console.error(err);
 	console.log(kittens);
 });
+app.get('/', (req, res) => {
+	Kitten.find({}, (e, f) => {
+		res.json({
+			req: req,
+			res: f
+		});
+	});
+});
 app.listen(3000);
