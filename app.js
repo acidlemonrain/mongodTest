@@ -10,15 +10,7 @@ kittySchema.methods.speak = function() {
 };
 var Kitten = mongoose.model('Kitten', kittySchema);
 mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true });
-var fluffy = new Kitten({ name: 'fluffy' });
-fluffy.save(function(err, fluffy) {
-	if (err) return console.error(err);
-	fluffy.speak();
-});
-Kitten.find(function(err, kittens) {
-	if (err) return console.error(err);
-	console.log(kittens);
-});
+
 app.get('/', (req, res) => {
 	Kitten.find({}, (e, f) => {
 		res.json(f);
