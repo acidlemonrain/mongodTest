@@ -21,10 +21,7 @@ Kitten.find(function(err, kittens) {
 });
 app.get('/', (req, res) => {
 	Kitten.find({}, (e, f) => {
-		res.json({
-			req: req,
-			res: f
-		});
+		res.json(f);
 	});
 });
 app.listen(3000);
